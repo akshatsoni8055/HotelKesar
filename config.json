@@ -1,0 +1,9 @@
+{
+    "jwtSecret": "sssh... it's a secret",
+    "secretKey": "sssh... it's also a secret",
+     "branding": {
+        "companyName": "Kesar",
+        "logo": false,
+        "softwareBrothers": false
+    }
+}
