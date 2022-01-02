@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
   Transaction.beforeCreate(async (txn, options) => {
     let lastTxn = await Transaction.findOne({ order: [['id', 'DESC']] });
     lastTxn = lastTxn || { balance: 0 }
-    txn.transaction = txn.type === 'Deposit' ? txn.transaction : -txn.transaction
+    txn.transaction = txn.type === 'Deposit' ? Math.abs(txn.transaction) : -Math.abs(txn.transaction);
     txn.balance = lastTxn.balance + parseInt(txn.transaction)
   })
   return Transaction;

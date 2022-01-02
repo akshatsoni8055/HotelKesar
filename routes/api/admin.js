@@ -12,13 +12,22 @@ const adminBro = new AdminBro({
     databases: [db],
     resources: [
         {
-            resource: db.Transaction, options: {
+            resource: db.Transaction,
+            options: {
                 properties: {
                     updatedAt: {
-                        isVisible: { list: false, filter: false, show: false, edit: false },
+                        isVisible: {},
                     },
                     balance: {
-                        isVisible: { edit: false, list: true, show: true }
+                        isVisible: { list: true, show: true }
+                    },
+                    id: {
+                        isVisible: { show: true}
+                    }
+                },
+                actions: {
+                    edit: {
+                        isAccessible: false
                     }
                 }
             }
